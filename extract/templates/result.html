@@ -1,0 +1,8 @@
+{% if extracted_data %}
+    <h2>Extracted Text:</h2>
+    <pre>{{ extracted_data.extracted_text|urlize }}</pre>
+    <br>
+    <h2>Uploaded Image:</h2>
+    <img src="{{ MEDIA_URL }}{{ extracted_data.document.url }}" alt="Uploaded Image" style="border: 1px solid black;">
+    <p>Document Type: {{ extracted_data.document_type }}</p>
+{% endif %}
