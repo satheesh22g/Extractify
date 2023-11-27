@@ -1,0 +1,24 @@
+<!-- home.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <!-- Inside the <head> section of your HTML templates -->
+
+
+        
+
+</head>
+<body>
+    {% include 'navbar.html' %}
+   <div class="center">
+    <h1>Welcome to Data Extraction</h1>
+    <ul>
+        <li><a href="{% url 'image_extraction' %}">Image Data Extraction</a></li>
+        <li><a href="{% url 'pdf_extraction' %}">PDF Data Extraction</a></li>
+    </ul>
+   </div>
+</body>
+</html>

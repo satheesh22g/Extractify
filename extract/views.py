@@ -4,6 +4,9 @@ import pytesseract
 from PIL import Image
 from io import BytesIO
 pytesseract.pytesseract.tesseract_cmd = r'G:\tessaract\tesseract.exe'
+
+def home(request):
+    return render(request, 'home.html')
 def image_extraction(request):
     if request.method == 'POST' and request.FILES['document']:
         document = request.FILES['document']
@@ -27,10 +30,27 @@ def image_extraction(request):
     return render(request, 'image_extraction.html')
 
 
+import PyPDF2
+from django.shortcuts import render
+
 def pdf_extraction(request):
     if request.method == 'POST' and request.FILES['document']:
-        # Handle PDF extraction logic using PyPDF2
-        # Save extracted text to database
-        return render(request, 'result.html', {'extracted_text': extracted_text})
+        uploaded_file = request.FILES['document']
+        pdf_reader = PyPDF2.PdfReader(uploaded_file)
+        extracted_text = ''
+
+        for page_num in range(len(pdf_reader.pages)):
+            page = pdf_reader.pages[page_num]
+            extracted_text += page.extract_text()
+        extracted_text = extracted_text.replace('\n', ' ')
+        document_type = 'PDF'  # You can set the document type as needed
+        
+        # Create a dictionary with extracted text and document type
+        extracted_data = {
+            'extracted_text': extracted_text,
+            'document_type': document_type
+        }
+
+        return render(request, 'result.html', {'extracted_data': extracted_data})
 
     return render(request, 'pdf_extraction.html')

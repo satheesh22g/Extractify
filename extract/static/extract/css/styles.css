@@ -1,0 +1,111 @@
+/* styles.css */
+
+.center
+    {
+        text-align: center;
+    }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+    
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* styles.css */
+
+.navbar-custom {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav .nav-link {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 0.875rem; /* Optional: Reduce font size */
+}
+/* Add more styles as needed */
+
+
+/* results.html */
+
+.container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Space between items */
+}
+
+.extracted-text {
+    width: 45%; /* Adjust the width as needed */
+}
+
+.image-container {
+    width: 45%; /* Adjust the width as needed */
+}
+
+/* Ensuring image size */
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc; /* Define border properties */
+    padding: 5px; /* Add some padding around the image */
+}
+
+body {
+    margin: 20px; /* Add margins to all sides of the body */
+}
+
+/* Container around content (optional) */
+.page-container {
+    margin: 20px; /* Add margins to all sides of the container */
+}
+
+ /* Adjustments for smaller screens */
+ @media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Change flex direction to column */
+    }
+
+    .extracted-text, .image-container {
+        width: 100%; /* Set width to 100% for stacking on smaller screens */
+        padding: 10px; /* Adjust padding for spacing */
+        box-sizing: border-box; /* Include padding in the width calculation */
+        text-align: center; 
+    }
+
+    .image-container img {
+        margin: 0 auto; /* Center the image */
+        display: block; /* Ensure the image fills the container width */
+        max-width: 100%; /* Ensure image doesn't overflow */
+        height: auto;
+    }
+}
