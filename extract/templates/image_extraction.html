@@ -1,5 +1,15 @@
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="document">
-    <input type="submit" value="Extract Image Text">
-</form>
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static '/extract/css/styles.css' %}">
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="document">
+            <input type="submit" value="Extract Image Text">
+        </form>
+
+    </body>
+</html>

@@ -44,11 +44,12 @@ def pdf_extraction(request):
             extracted_text += page.extract_text()
         extracted_text = extracted_text.replace('\n', ' ')
         document_type = 'PDF'  # You can set the document type as needed
-        
+        pdf_url = uploaded_file.url if hasattr(uploaded_file, 'url') else None
         # Create a dictionary with extracted text and document type
         extracted_data = {
             'extracted_text': extracted_text,
-            'document_type': document_type
+            'document_type': document_type,
+            'pdf_url' : pdf_url
         }
 
         return render(request, 'result.html', {'extracted_data': extracted_data})

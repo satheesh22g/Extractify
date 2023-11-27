@@ -14,18 +14,21 @@
         {% if extracted_data %}
             <h2>Extracted Text:</h2>
             {{ extracted_data.extracted_text|urlize }}
-           
         {% endif %}
     </div>
 
     <div class="image-container">
-        {% if   %}
-            <h2>Uploaded Image:</h2>
-            <embed src="path_to_your_pdf.pdf" type="application/pdf" width="100%" height="100%">
-                
-            <img src="{{ MEDIA_URL }}{{ extracted_data.document.url }}" alt="Uploaded Image">
-            
-        {% endif %}
+        {% if extraction_data.document_type == 'PDF' %}
+        <h2> Uploaded Document</h2>
+            <embed src="{{ extraction_data.pdf_url }}" type="application/pdf" width="100%" height="100%">
+
+    {% elif extraction_data.document_type == image %}
+    <h2> Uploaded Image</h2>
+    <img src="{{ MEDIA_URL }}{{ extracted_data.document.url }}" alt="Uploaded Image" style="border: 2px solid #0c0505;padding: 5px;">
+
+    {% else %}
+        <p>No valid document found.</p>
+    {% endif %}
     </div>
 </div>
 {% if extracted_data %}
