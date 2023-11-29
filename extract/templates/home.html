@@ -13,11 +13,13 @@
 </head>
 <body>
     {% include 'navbar.html' %}
-   <div class="center">
+    {% include 'footer.html' %}
+   <div class="center" style="margin: 2%;text-align: center;">
     <h1>Welcome to Data Extraction</h1>
     <ul>
-        <li><a href="{% url 'image_extraction' %}">Image Data Extraction</a></li>
-        <li><a href="{% url 'pdf_extraction' %}">PDF Data Extraction</a></li>
+        <br>
+        <a href="{% url 'image_extraction' %}">Image Data Extraction</a><br><br>
+        <a href="{% url 'pdf_extraction' %}">PDF Data Extraction</a>
     </ul>
    </div>
 </body>

@@ -7,7 +7,9 @@
 
     </head>
     <body>
+        
     {% include 'navbar.html' %}
+    {% include 'footer.html' %}
 <div class="page-container">
     <div class="container">
     <div class="extracted-text">
@@ -18,12 +20,17 @@
     </div>
 
     <div class="image-container">
-        {% if extraction_data.document_type == 'PDF' %}
-        <h2> Uploaded Document</h2>
-            <embed src="{{ extraction_data.pdf_url }}" type="application/pdf" width="100%" height="100%">
+        {% if pdf == "PDF" %}
 
-    {% elif extraction_data.document_type == image %}
+        <h2> Uploaded Document</h2>
+        
+<object data="{{ MEDIA_URL }}{{ extracted_data.document.url }}" type="application/pdf" width="100%" height="100%">
+  <p>Unable to display Document <a target="_blank" href="{{ MEDIA_URL }}{{ extracted_data.document.url }}">click here to see PDF!</a></p>
+</object>
+          
+    {% elif image == "image" %}
     <h2> Uploaded Image</h2>
+   
     <img src="{{ MEDIA_URL }}{{ extracted_data.document.url }}" alt="Uploaded Image" style="border: 2px solid #0c0505;padding: 5px;">
 
     {% else %}
